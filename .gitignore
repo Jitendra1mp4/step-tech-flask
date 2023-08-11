@@ -1,2 +1,4 @@
 /.vscode
 /env
+/sampleApp/_pychache
+/sampleApp/_pychache/*
