@@ -12,7 +12,7 @@ def home_page():
 
 @app.route("/hello")
 def hello_page():
-    return "<h1>Hello World!</h1>"
+    return render_template('hello_page.html')
 
 
 @app.route("/adduser", methods=["GET", "POST"])
