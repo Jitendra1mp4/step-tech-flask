@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SAMPLe APP : Home
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center my-3">Register</h1>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <form action="{{ url_for('adduser_page') }}" method="post">
+                <!-- hidden CSRF token input field-->
+                {{ form.csrf_token }}
+                <div class="my-3 row">
+                    <!-- name input field -->
+                    {{form.name.label}}
+                    {{form.name(class="form-control ml-4")}}
+
+                    <!-- name input field validation-->
+                    {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                    <p class="text-danger">{{ error}}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="my-3 row">
+                    <!-- email input field -->
+                    {{form.email.label}}
+                    {{form.email(class="form-control ml-4")}}
+
+                    <!-- email input field validation -->
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                         <p class="text-danger">{{ error}}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+                <div class="my-3 row">
+                    <!-- role field -->
+                    {{form.role.label}}
+                    {{form.role(class="form-control ml-4")}}
+                </div>
+                <!-- Submit btn -->
+                {{form.submit(class="btn btn-primary")}}
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock %}

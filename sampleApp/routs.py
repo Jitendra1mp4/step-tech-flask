@@ -1,6 +1,7 @@
-from flask import render_template, request,flash,redirect, url_for
+from flask import render_template, request, redirect, url_for
 from sampleApp import app
 import sampleApp.db_handler as dbh
+from sampleApp.Forms import AddEmployeeForm
 
 
 @app.route("/")
@@ -16,14 +17,14 @@ def hello_page():
 
 @app.route("/adduser", methods=["GET", "POST"])
 def adduser_page():
-    if request.method == "POST":
-        print(request.form)
-        status = dbh.save_user(request.form)
-        if status: 
-            return redirect(url_for('users_page'))
+    form = AddEmployeeForm()
+    if form.validate_on_submit():
+        dataSaveStatus = dbh.save_user(request.form)
+        if dataSaveStatus:
+            return redirect(url_for("users_page"))
         else:
-            return f'<h2 class="text-danger">{status}</h2>'
-    return render_template("adduser_page.html")
+            return f'<h2 class="text-danger">{dataSaveStatus}</h2>'
+    return render_template("adduser_page.html", form=form)
 
 
 @app.route("/users")
