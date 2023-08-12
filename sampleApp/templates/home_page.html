@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-   SAMPLe APP : Home 
+SAMPLe APP : Home
 {% endblock %}
 
 {% block content %}
-    <h1>Home Page</h1>
+<h1 class="mt-5 text-center">Welcome To SAMPLe App!</h1>
+<div class="homoCon">
+    <a href="{{ url_for('users_page' ) }}">All Users</a>
+    <a href="{{ url_for('adduser_page' ) }}">Add User</a>
+    <a href="{{ url_for('hello_page' ) }}">Hello World!</a>
+    <!-- just for testing I have hard coded url/3 -->
+    <a href="{{ url_for('users_page' ) }}/3">User Detail Page</a>
+</div>
+</div>
 {% endblock %}
