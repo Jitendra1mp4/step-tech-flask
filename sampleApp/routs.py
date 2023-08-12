@@ -33,6 +33,8 @@ def users_page():
     return render_template("users_page.html", users=users)
 
 
-@app.route("/user/<username>")
-def user_detail(username):
-    return render_template("user_detail.html", username=username)
+@app.route("/users/<int:uid>")
+def user_detail(uid):
+    user = dbh.getUserDetails(id=uid)
+    # print("from route : ",user)
+    return render_template("user_detail.html" , user=user , id=uid)

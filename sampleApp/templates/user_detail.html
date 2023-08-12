@@ -1,9 +1,45 @@
 {% extends 'base.html' %}
 
 {% block title %}
-   SAMPLe APP : User Details
+SAMPLe APP : User Details
 {% endblock %}
 
+
 {% block content %}
-    <h1>User Details Page</h1>
+
+{% if not user %}
+<!-- If no user exist then waring text! -->
+<h1 class="my-5 text-center alert alert-warning">Sorry! We did'nt found user with this ID : {{id}}</h1>
+{% else %}
+<div class="container-sm my-5" style="max-width:380px">
+    <h1 class="my-5 text-center">{{user[1]}}'s Details</h1>
+    <!-- table to user details -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Column</th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">ID</th>
+                <td scope="col">{{user[0]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td scope="col">{{user[1]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td scope="col">{{user[2]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Role</th>
+                <td scope="col">{{user[3]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+</div>
 {% endblock %}

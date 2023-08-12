@@ -34,3 +34,20 @@ def getAllUsersDetails() :
     finally:
         cur.close()
     return status
+
+
+def getUserDetails(id) : 
+    status = 1
+    try:
+        cur = mysql.connection.cursor()
+        qry = f"SELECT * FROM users where id={id}"
+        # print(qry)
+        cur.execute(qry)
+        rs = cur.fetchone()
+        # print("rs fjd 1 ", rs[1])
+        return rs 
+    except:
+        status = "Sorry! Error encountered while retrieving user details"
+    finally:
+        cur.close()
+    return status
