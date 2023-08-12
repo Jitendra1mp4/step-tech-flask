@@ -5,7 +5,7 @@ SAMPLe APP : Home
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center my-3">Register</h1>
+<h1 class="text-center my-3">Add User</h1>
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -13,7 +13,7 @@ SAMPLe APP : Home
             <form action="{{ url_for('adduser_page') }}" method="post">
                 <!-- hidden CSRF token input field-->
                 {{ form.csrf_token }}
-                <div class="my-3 row">
+                <div class="my-3 row ">
                     <!-- name input field -->
                     {{form.name.label}}
                     {{form.name(class="form-control ml-4")}}
@@ -44,7 +44,7 @@ SAMPLe APP : Home
                     {{form.role(class="form-control ml-4")}}
                 </div>
                 <!-- Submit btn -->
-                {{form.submit(class="btn btn-primary")}}
+                {{form.submit(class="btn btn-secondary mt-5")}}
             </form>
         </div>
         <div class="col"></div>
