@@ -1,4 +1,3 @@
 /.vscode
 /env
-/sampleApp/_pychache
-/sampleApp/_pychache/*
+/sampleApp/__pycache__
