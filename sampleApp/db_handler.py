@@ -19,3 +19,18 @@ def save_user(form):
     finally:
         cur.close()
     return status
+
+
+def getAllUsersDetails() : 
+    status = 1
+    try:
+        cur = mysql.connection.cursor()
+        qry = "SELECT * FROM users"
+        cur.execute(qry)
+        rs = cur.fetchall()
+        return rs 
+    except:
+        status = "Sorry! Error encountered while retrieving user details"
+    finally:
+        cur.close()
+    return status

@@ -29,7 +29,8 @@ def adduser_page():
 
 @app.route("/users")
 def users_page():
-    return render_template("users_page.html")
+    users = dbh.getAllUsersDetails()
+    return render_template("users_page.html", users=users)
 
 
 @app.route("/user/<username>")
