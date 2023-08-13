@@ -15,13 +15,23 @@ The app requires certain dependencies and a database connection to be successful
 
 Clone the app using the following command:
 ```bash
-git clone remote_url
+git@github.com:Jitendra1mp4/step-tech-flask.git
 ```
+But if you are in branch other then main then use following command to clone the repo
+```bash
+git clone -b mybranch --single-branch git@github.com:Jitendra1mp4/step-tech-flask.git
+```
+like for steptech_assignment branch it would be
+
+```bash
+ git clone -b steptech_assignment --single-branch git@github.com:Jitendra1mp4/step-tech-flask.git
+```
+
 - ### Creating a Virtual Environment (Optional but Recommended)
  It is recommended to create a virtual environment. To do this, first install virtualenv:
 
 ```bash
-cd repo_name
+cd step-tech-flask
 pip install virtualenv
 ```
 To create a virtual environment, run:
