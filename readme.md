@@ -74,6 +74,7 @@ app.config['MYSQL_PASSWORD'] = ''      #password
 app.config['MYSQL_DB'] = 'sampleApp'   #database name
 ```
 ## Running the App 
+before running the app using following command please insure that MySQL server is started.
 Use the following command to run the app:
 
 ```
