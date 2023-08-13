@@ -15,13 +15,23 @@ The app requires certain dependencies and a database connection to be successful
 
 Clone the app using the following command:
 ```bash
-git clone remote_url
+git@github.com:Jitendra1mp4/step-tech-flask.git
 ```
+But if you are in branch other then main then use following command to clone the repo
+```bash
+git clone -b mybranch --single-branch git@github.com:Jitendra1mp4/step-tech-flask.git
+```
+like for steptech_assignment branch it would be
+
+```bash
+ git clone -b steptech_assignment --single-branch git@github.com:Jitendra1mp4/step-tech-flask.git
+```
+
 - ### Creating a Virtual Environment (Optional but Recommended)
  It is recommended to create a virtual environment. To do this, first install virtualenv:
 
 ```bash
-cd repo_name
+cd step-tech-flask
 pip install virtualenv
 ```
 To create a virtual environment, run:
@@ -65,13 +75,13 @@ pip install -r requirement.txt
 
 - Once the queries are executed successfully, you can run the app.
 
-- Set database variable `__init__.py` as follows :
+- Set following database variable in `__init__.py` like follows :
 
 ```python
-app.config['MYSQL_HOST'] = 'localhost' #host
-app.config['MYSQL_USER'] = 'root'      #username
-app.config['MYSQL_PASSWORD'] = ''      #password 
-app.config['MYSQL_DB'] = 'sampleApp'   #database name
+app.config['MYSQL_HOST'] = 'localhost' # your db host
+app.config['MYSQL_USER'] = 'root'      # your db username
+app.config['MYSQL_PASSWORD'] = ''      # your db  password 
+app.config['MYSQL_DB'] = 'sampleApp'   # your database name
 ```
 ## Running the App 
 before running the app using following command please insure that MySQL server is started.
