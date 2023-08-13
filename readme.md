@@ -65,6 +65,14 @@ pip install -r requirement.txt
 
 - Once the queries are executed successfully, you can run the app.
 
+- Set database variable `__init__.py` as follows :
+
+```python
+app.config['MYSQL_HOST'] = 'localhost' #host
+app.config['MYSQL_USER'] = 'root'      #username
+app.config['MYSQL_PASSWORD'] = ''      #password 
+app.config['MYSQL_DB'] = 'sampleApp'   #database name
+```
 ## Running the App 
 Use the following command to run the app:
 
