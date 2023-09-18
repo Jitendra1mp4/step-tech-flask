@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from sampleApp import app
 import sampleApp.db_handler as dbh
 from sampleApp.Forms import AddEmployeeForm
@@ -38,3 +38,10 @@ def user_detail(uid):
     user = dbh.getUserDetails(id=uid)
     # print("from route : ",user)
     return render_template("user_detail.html" , user=user , id=uid)
+
+
+@app.route("/delete/<int:uid>") 
+def delete_user(uid):
+    status = dbh.deleteUserDetails(uid)
+    flash(f"Status of deletion of user with id {uid} : {status}")
+    return redirect(url_for("users_page"))

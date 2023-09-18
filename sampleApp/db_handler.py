@@ -51,3 +51,22 @@ def getUserDetails(id) :
     finally:
         cur.close()
     return status
+
+
+def deleteUserDetails(id) : 
+    status = 1
+    # delete qry
+    qry = f"DELETE FROM users WHERE id={id}"
+    try:
+        cur = mysql.connection.cursor()
+        number_of_row_affected = cur.execute(qry)
+        mysql.connection.commit()
+        if number_of_row_affected : 
+            status = "Success"
+        else : 
+            status = "Something went wrong!!!"
+    except:
+        status = "Sorry! Error encountered while deleting user details"
+    finally:
+        cur.close()
+    return status 
