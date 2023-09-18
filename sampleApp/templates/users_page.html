@@ -7,19 +7,25 @@ SAMPLe APP : Users
 {% block content %}
 <div class="container my-5" style="overflow-x: scroll;">
 
+ <!-- Added flash message -->
+    {% for msg in get_flashed_messages() %}
+    <p>{{msg}}</p>
+    {% endfor%}
+
     {% if not users %}
     <!-- If no user exist then waring text! -->
     <h1 class="my-5 text-center alert alert-warning">No User found</h1>
     {% else %}
     <h1 class="my-5 text-center">All Users</h1>
     <!-- table to show users -->
-    <table class="table">
+    <table class="table" border>
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
+                <th scope="col" colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +35,9 @@ SAMPLe APP : Users
                 <td>{{user[1]}}</td>
                 <td>{{user[2]}}</td>
                 <td>{{user[3]}}</td>
+                <td><a href="{{url_for('user_detail',uid=user[0])}}" class="btn btn-primary">View</a></td>
+                <td><a href="{{url_for('delete_user',uid=user[0])}}" class="btn btn-danger">Delete</a></td>
+
             </tr>
             {% endfor %}
         </tbody>
