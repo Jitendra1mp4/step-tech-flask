@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
 
 {% block title %}
-   SAMPLe APP : Users 
+SAMPLe APP : Users
 {% endblock %}
 
 {% block content %}
-    <h1>Users Page</h1>
+<div class="container my-5" style="overflow-x: scroll;">
+
+    {% if not users %}
+    <!-- If no user exist then waring text! -->
+    <h1 class="my-5 text-center alert alert-warning">No User found</h1>
+    {% else %}
+    <h1 class="my-5 text-center">All Users</h1>
+    <!-- table to show users -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td scop="row">{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[2]}}</td>
+                <td>{{user[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+
+</div>
 {% endblock %}
